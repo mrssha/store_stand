@@ -7,6 +7,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import stand.dto.ProductDto;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -16,7 +17,6 @@ import java.util.List;
 
 @Stateless
 public class RestService implements Serializable {
-
 
     public List<ProductDto> getTopProducts(){
         ResteasyClient client = new ResteasyClientBuilder().build();
@@ -34,12 +34,7 @@ public class RestService implements Serializable {
         }
         response.close();
         return null;
-
     }
-
-
-
-
 
 
 }

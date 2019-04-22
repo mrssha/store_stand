@@ -5,7 +5,9 @@ import stand.dto.ProductDto;
 import stand.rest.RestService;
 
 import javax.annotation.ManagedBean;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -22,24 +24,11 @@ public class ProductController {
 
     private List<ProductDto> topProducts;
 
-
-    public String home() throws IOException {
-        return "index";
-    }
-
     public List<ProductDto> getTopProducts(){
         topProducts =  restService.getTopProducts();
         return topProducts;
     }
 
 
-
-//    public void setTopProducts() {
-//        this.topProducts = restService.getTopProducts();
-//    }
-//
-//    public List<ProductDto> getTopProducts(){
-//        return topProducts;
-//    }
 
 }

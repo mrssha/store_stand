@@ -1,0 +1,32 @@
+
+
+.col{
+    flex-grow: unset;
+}
+
+.card {
+    width: 180px;
+    /*height: 400px;*/
+    border: 1px solid #dddddd;
+    /*border: none;*/
+    margin-bottom: 30px;
+
+}
+
+.card-img-top{
+    width: 82px;
+    height: 176px;
+}
+
+.card-body {
+    position: relative;
+    padding: 0.5rem 0.25rem;
+}
+
+
+.card-text {
+    color: #DC143C;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+}
