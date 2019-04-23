@@ -1,33 +1,6 @@
 
-
 .col{
     flex-grow: unset;
-}
-
-/*.cat{*/
-    /*position: absolute;*/
-    /*margin-right: 15px;*/
-/*}*/
-
-
-#parque{
-    width: 100%;
-    border: 1px solid #dddddd;
-}
-
-
-.card {
-    width: 180px;
-    /*height: 400px;*/
-    border: 1px solid #dddddd;
-    /*border: none;*/
-    margin-bottom: 30px;
-
-}
-
-.card-img-top{
-    /*width: 82px;*/
-    /*height: 176px;*/
 }
 
 .card-body {

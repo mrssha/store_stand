@@ -5,6 +5,6 @@
            xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee
            http://www.jboss.org/j2ee/schema/jboss-web_10_0.xsd">
 
-    <context-root>/stand/</context-root>
+    <context-root>/stand</context-root>
 
 </jboss-web>

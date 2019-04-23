@@ -5,7 +5,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:o="http://omnifaces.org/ui">
 
    <h:head>
       <title>stand</title>
@@ -40,10 +41,10 @@
                        <div class="row product-list">
                            <ui:repeat value="#{products.topProducts.subList(0,5)}" var="product">
                                <div class="col">
-                                   <div class="card board text-center" style="width: 200px">
+                                   <div class="card board text-center" style="width: 200px; border: none;">
                                        <a href="http://localhost:8080/store/product/${product.id}">
                                            <img src="http://localhost:8080/store/resources/image/bg/#{product.imageBg}"
-                                                class="card-img-top" alt="product_photo"/>
+                                                class="card-img-top" style="width: 150px; height: 350px;" alt="product_photo"/>
                                        </a>
                                        <div class="card-body">
                                            <h5 class="card-title">#{product.name}</h5>
@@ -58,10 +59,10 @@
                        <div class="row product-list">
                            <ui:repeat value="#{products.topProducts.subList(5,10)}" var="product">
                                <div class="col">
-                                   <div class="card text-center">
+                                   <div class="card board text-center" style="width: 200px; border: none;">
                                        <a href="http://localhost:8080/store/product/${product.id}">
                                            <img src="http://localhost:8080/store/resources/image/bg/#{product.imageBg}"
-                                                class="card-img-top" alt="product_photo"/>
+                                                class="card-img-top" style="width: 150px; height: 350px;" alt="product_photo"/>
                                        </a>
                                        <div class="card-body">
                                            <h5 class="card-title">#{product.name}</h5>
@@ -76,37 +77,22 @@
            </div>
        </f:view>
 
+       <script type="text/javascript">
+           function socketListener(message, channel, event) {
+               console.log(message);
+               window.location.reload();
+           }
+       </script>
 
+       <o:socket id="socketId" channel="updateChanel" scope="application" onmessage="socketListener"/>
 
-       <!--style="width: 82px; height: 176px;"-->
-      <!--<f:view>-->
-         <!--<div class="container-fluid">-->
-                  <!--<div class="row product-list">-->
-                     <!--<ui:repeat value="#{products.topProducts}" var="product">-->
-                        <!--<div class="col">-->
-                           <!--<div class="card text-center">-->
-                              <!--<a href="http://localhost:8080/store/product/${product.id}">-->
-                              <!--<img src="http://localhost:8080/store/resources/image/sm/#{product.imageSm}"-->
-                                   <!--class="card-img-top" alt="product_photo"/>-->
-                              <!--</a>-->
-                              <!--<div class="card-body">-->
-                                 <!--<h5 class="card-title">#{product.name}</h5>-->
-                                 <!--<p class="card-text">#{product.price}</p>-->
-                              <!--</div>-->
-                           <!--</div>-->
-                        <!--</div>-->
-                     <!--</ui:repeat>-->
-                  <!--</div>-->
-         <!--</div>-->
-         <!--<o:socket channel="productChannel" onmessage="socketListener"/>-->
-      <!--</f:view>-->
 
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
               type="text/javascript"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
               type="text/javascript"></script>
-      <!--<script type="text/javascript" src="resources/js/index.js"/>-->
+      <!--<script type="text/javascript" src="resources/js/update.js"/>-->
 
    </h:body>
 

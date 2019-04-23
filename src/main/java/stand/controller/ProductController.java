@@ -24,9 +24,17 @@ public class ProductController {
 
     private List<ProductDto> topProducts;
 
+    @PostConstruct
+    public void init(){
+        topProducts = restService.getTopProducts();
+    }
+
     public List<ProductDto> getTopProducts(){
-        topProducts =  restService.getTopProducts();
         return topProducts;
+    }
+
+    public void updateProducts(){
+        topProducts = restService.getTopProducts();
     }
 
 

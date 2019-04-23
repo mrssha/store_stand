@@ -23,13 +23,13 @@ public class RestService implements Serializable {
         ResteasyWebTarget target = client.target("http://localhost:8080/store/product/top");
         Response response = target.request(MediaType.APPLICATION_JSON_TYPE).get();
 
-
         if (response.getStatus() == 200) {
             String jsonResult = response.readEntity(String.class);
             response.close();
             Gson gson = new Gson();
             Type typeToken = new TypeToken<List<ProductDto>>() {}.getType();
             List<ProductDto> topProducts = gson.fromJson(jsonResult, typeToken);
+            response.close();
             return topProducts;
         }
         response.close();
