@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
 
    <h:head>
       <title>stand</title>
@@ -12,44 +13,93 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+      
       <h:outputStylesheet name="style/stand.css"/>
 
    </h:head>
 
 
    <h:body>
+       <f:view>
+           <div class="container-fluid">
+           <div class="row my-3">
+               <div class="col-md-8 text-center">
+                   <h1>Wellcome to Letsnow!</h1>
+                   <h2>Top products:</h2>
+               </div>
+               <div class="col-dm-4 cat">
+                   <a href="http://localhost:8080/store">
+                   <img src="resources/image/cat_small.jpg"
+                        class="catImg" alt="cat_photo"/>
+                   </a>
+               </div>
+           </div>
+               <b:carousel id="parque" show-controls="false" show-indicators="false" style="margin-left: 100px;
+                margin-right: 90px; margin-top: 20px">
+                   <b:carouselItem interval="4000">
+                       <div class="row product-list">
+                           <ui:repeat value="#{products.topProducts.subList(0,5)}" var="product">
+                               <div class="col">
+                                   <div class="card board text-center" style="width: 200px">
+                                       <a href="http://localhost:8080/store/product/${product.id}">
+                                           <img src="http://localhost:8080/store/resources/image/bg/#{product.imageBg}"
+                                                class="card-img-top" alt="product_photo"/>
+                                       </a>
+                                       <div class="card-body">
+                                           <h5 class="card-title">#{product.name}</h5>
+                                           <p class="card-text">#{product.price}</p>
+                                       </div>
+                                   </div>
+                               </div>
+                           </ui:repeat>
+                       </div>
+                   </b:carouselItem>
+                   <b:carouselItem interval="4000">
+                       <div class="row product-list">
+                           <ui:repeat value="#{products.topProducts.subList(5,10)}" var="product">
+                               <div class="col">
+                                   <div class="card text-center">
+                                       <a href="http://localhost:8080/store/product/${product.id}">
+                                           <img src="http://localhost:8080/store/resources/image/bg/#{product.imageBg}"
+                                                class="card-img-top" alt="product_photo"/>
+                                       </a>
+                                       <div class="card-body">
+                                           <h5 class="card-title">#{product.name}</h5>
+                                           <p class="card-text">#{product.price}</p>
+                                       </div>
+                                   </div>
+                               </div>
+                           </ui:repeat>
+                       </div>
+                   </b:carouselItem>
+               </b:carousel>
+           </div>
+       </f:view>
 
-      <f:view>
-         <div class="container-fluid">
-                  <div class="row product-list">
-                     <ui:repeat value="#{products.topProducts}" var="product">
-                        <div class="col">
-                           <div class="card text-center">
-                              <a href="http://localhost:8080/store/product/${product.id}">
-                              <img src="http://localhost:8080/store/resources/image/sm/#{product.imageSm}"
-                                   class="card-img-top" alt="product_photo" style="width: 82px; height: 176px;"/>
-                              </a>
-                              <div class="card-body">
-                                 <h5 class="card-title">#{product.name}</h5>
-                                 <p class="card-text">#{product.price}</p>
-                              </div>
-                           </div>
-                        </div>
-                     </ui:repeat>
-                  </div>
-         </div>
+
+
+       <!--style="width: 82px; height: 176px;"-->
+      <!--<f:view>-->
+         <!--<div class="container-fluid">-->
+                  <!--<div class="row product-list">-->
+                     <!--<ui:repeat value="#{products.topProducts}" var="product">-->
+                        <!--<div class="col">-->
+                           <!--<div class="card text-center">-->
+                              <!--<a href="http://localhost:8080/store/product/${product.id}">-->
+                              <!--<img src="http://localhost:8080/store/resources/image/sm/#{product.imageSm}"-->
+                                   <!--class="card-img-top" alt="product_photo"/>-->
+                              <!--</a>-->
+                              <!--<div class="card-body">-->
+                                 <!--<h5 class="card-title">#{product.name}</h5>-->
+                                 <!--<p class="card-text">#{product.price}</p>-->
+                              <!--</div>-->
+                           <!--</div>-->
+                        <!--</div>-->
+                     <!--</ui:repeat>-->
+                  <!--</div>-->
+         <!--</div>-->
          <!--<o:socket channel="productChannel" onmessage="socketListener"/>-->
-      </f:view>
-      <!--<ul>-->
-         <!--<ui:repeat value="#{products.topProducts}" var="product">-->
-<!---->
-            <!--<li>-->
-               <!--<h:link value="#{product.name}" outcome="book">-->
-                  <!--<f:param name="id" value="#{product.id}" />-->
-               <!--</h:link>-->
-            <!--</li>-->
-         <!--</ui:repeat>-->
-      <!--</ul>-->
+      <!--</f:view>-->
 
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
