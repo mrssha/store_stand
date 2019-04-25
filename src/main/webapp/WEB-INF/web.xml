@@ -17,6 +17,7 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
@@ -27,4 +28,10 @@
         <param-value>true</param-value>
     </context-param>
 
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/error.xhtml</location>
+    </error-page>
+
 </web-app>
+
