@@ -1,17 +1,14 @@
-package stand.controller;
+package stand.bean;
 
 
 import stand.dto.ProductDto;
 import stand.rest.RestService;
+import stand.rest.RestServiceImpl;
 
-import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.io.IOException;
 import java.util.List;
 
 
@@ -33,10 +30,9 @@ public class ProductController {
         return topProducts;
     }
 
+
     public void updateProducts(){
         topProducts = restService.getTopProducts();
     }
-
-
 
 }
